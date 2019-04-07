@@ -1,10 +1,11 @@
 <template>
   <div>
-    <el-table data="itemData">
-      <el-table-column prop="itemWebUrl" label="Web Url"></el-table-column>
-    </el-table>
-    <el-button @click="tab">Losted</el-button>
-    <el-button @click="test">Losted2</el-button>
+    <el-card v-for="item in itemData" :key="item.itemId">
+      <img :src="item.image.imageUrl" class="image" @click="tab(item.itemWebURL)">
+      <span>{{item.itemWebURL}}</span>
+      <!-- <el-button @click="tab(item.itemWebURL)">Losted</el-button> -->
+      <span>{{item}}</span>
+    </el-card>
   </div>
 </template>
 <script>
@@ -14,7 +15,6 @@ export default {
   data: () => ({}),
   computed: {
     itemData() {
-      console.log(this.$store.getters.getItemData);
       return this.$store.getters.getItemData;
     },
   },
@@ -27,10 +27,11 @@ export default {
   },
   mounted() {},
   methods: {
-    async tab() {},
+    async tab(url) {
+      console.log(url);
+      // window.open(url);
+    },
     async test() {
-      // console.log(chrome.runtime);
-
       console.log(this.$store.getters.getItemData);
     },
   },

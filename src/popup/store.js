@@ -1,20 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import createPersistedState from 'vuex-persistedstate'
+import createPersistedState from 'vuex-persistedstate'
 
 import {getItems} from '../backend/api.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  // plugins: [createPersistedState({storage: window.sessionStorage})],
+  plugins: [createPersistedState({storage: window.localStorage})],
   state: {
     items: []
   },
   mutations: {
     async storeItems (state, itemSummaries) {
-      // Vue.set(state, 'items', ['hello'])
-      state.items.push(...itemSummaries)
+      Vue.set(state, 'items', itemSummaries)
     }
   },
   actions: {
