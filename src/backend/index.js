@@ -1,4 +1,7 @@
 import store from '../popup/store'
-
-store.dispatch('retrieveItems', {query: 'earphones'})
-console.log('queries ran')
+import {getItems} from './api'
+chrome.runtime.onMessage.addListener(({productTitle}) => {
+  let query = productTitle.trim()
+  store.dispatch('retrieveItems', {query: query})
+  setTimeout(() => console.log(store.getters.getItemData), 5000)
+})

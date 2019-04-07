@@ -6,23 +6,24 @@ import {getItems} from '../backend/api.js'
 
 Vue.use(Vuex)
 
-let store = new Vuex.Store({
+export default new Vuex.Store({
   // plugins: [createPersistedState({storage: window.sessionStorage})],
-  state: {},
+  state: {
+    items: []
+  },
   mutations: {
-    async storeItems (state, {itemSummaries}) {
-      Vue.set(state, 'items', itemSummaries)
+    async storeItems (state, itemSummaries) {
+      // Vue.set(state, 'items', ['hello'])
+      state.items.push(...itemSummaries)
     }
   },
   actions: {
     async retrieveItems ({commit}, {query}) {
-      let items = await getItems(query)
-      commit('storeItems', items)
+      let {itemSummaries} = await getItems(query)
+      commit('storeItems', itemSummaries)
     }
   },
   getters: {
-    getItemData: state => state.items
+    getItemData: state => state
   }
 })
-
-export default store
