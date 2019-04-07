@@ -10,7 +10,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   plugins: [createPersistedState({storage: window.localStorage})],
   state: {
-    items: []
+    items: [],
+    isLoggedIn: false
   },
   mutations: {
     async storeItems (state, {itemSummaries, query}) {
@@ -22,12 +23,19 @@ export default new Vuex.Store({
         )
       })
       Vue.set(state, 'items', items.slice(0, 10))
+    },
+    setLogIn (state, status) {
+      state.isLoggedIn = status
     }
   },
   actions: {
     async retrieveItems ({commit}, {query}) {
       let {itemSummaries} = await getItems(query)
       commit('storeItems', {itemSummaries, query})
+    },
+
+    async login ({commit}) {
+      commit('setLogIn', true)
     }
   },
   getters: {

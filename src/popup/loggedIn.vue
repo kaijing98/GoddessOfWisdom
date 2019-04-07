@@ -1,15 +1,22 @@
 <template>
   <div>
-    <log-in></log-in>
-    <!-- <logged-in></logged-in> -->
+    <!-- <img src="https://media1.tenor.com/images/6698f88ce716d840ee7834867e0e5ee5/tenor.gif"> -->
+    <!-- <img src="https://media.giphy.com/media/HyDfNCZlTn5iU/giphy.gif"> -->
+    <el-card v-for="item in itemData" :key="item.itemId">
+      <span>{{item.title}}</span>
+      <img
+        :src="item.image.imageUrl"
+        class="image"
+        @click="tab(item.itemWebUrl)"
+        width="200"
+        height="250"
+      >
+    </el-card>
   </div>
 </template>
 <script>
 import {getItems} from '../backend/api.js';
 import store from './store.js';
-import LoggedIn from './loggedIn.vue';
-import LogIn from './login';
-
 export default {
   data: () => ({}),
   computed: {
@@ -25,10 +32,6 @@ export default {
     });
   },
   mounted() {},
-  components: {
-    LoggedIn,
-    LogIn,
-  },
   methods: {
     async tab(url) {
       window.open(url);

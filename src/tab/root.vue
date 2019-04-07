@@ -1,18 +1,20 @@
-<template lang="pug">
-    div tab
+<template >
+  <div></div>
 </template>
 <script>
-  export default {
-    data: () => ({
-    }),
-    computed: { },
-    created () { },
-    mounted () { },
-    methods: { }
-  }
+import * as blockstack from 'blockstack';
+export default {
+  data: () => ({}),
+  computed: {},
+  created() {
+    blockstack.redirectToSignIn();
+  },
+  mounted() {},
+  methods: {},
+};
 </script>
 <style lang="scss">
-  div {
-    color: blue
-  }
+div {
+  color: blue;
+}
 </style>
