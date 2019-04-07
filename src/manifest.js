@@ -40,6 +40,6 @@ module.exports = {
   content_security_policy: "script-src 'self' 'unsafe-eval'; object-src 'self'",
   web_accessible_resources: ['panel.html', 'js/content.js'],
   externally_connectable: {
-    matches: ['https://www.amazon.com/*', 'https://winsonhys.github.io/'],
+    matches: ['https://www.amazon.com/*', 'https://winsonhys.github.io/*'],
   },
 }

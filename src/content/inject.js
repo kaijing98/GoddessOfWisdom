@@ -11,9 +11,18 @@ chrome.runtime.sendMessage('hfmhmekbejegcnndldeipoppfmbeaile', {
   productTitle: title,
 })
 
-chrome.runtime.onMessage.addListener(message => {
-  blockstack.redirectToSignIn()
-  console.log('redirecting')
-  // if (redirect) {
-  // }
+chrome.runtime.onMessage.addListener(async message => {
+  const authRequest = blockstack.makeAuthRequest(
+    null,
+    `${window.location.origin}/`,
+    `https://winsonhys.github.io/manifest.json`,
+    ['store_write'],
+    'https://winsonhys.github.io/',
+  )
+  console.log(authRequest)
+  try {
+    blockstack.redirectToSignInWithAuthRequest(authRequest)
+  } catch (e) {
+    console.log(e)
+  }
 })
