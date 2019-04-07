@@ -1,10 +1,16 @@
 <template>
   <div>
+    <!-- <img src="https://media1.tenor.com/images/6698f88ce716d840ee7834867e0e5ee5/tenor.gif"> -->
+    <!-- <img src="https://media.giphy.com/media/HyDfNCZlTn5iU/giphy.gif"> -->
     <el-card v-for="item in itemData" :key="item.itemId">
-      <img :src="item.image.imageUrl" class="image" @click="tab(item.itemWebURL)">
-      <span>{{item.itemWebURL}}</span>
-      <!-- <el-button @click="tab(item.itemWebURL)">Losted</el-button> -->
-      <span>{{item}}</span>
+      <span>{{item.title}}</span>
+      <img
+        :src="item.image.imageUrl"
+        class="image"
+        @click="tab(item.itemWebUrl)"
+        width="200"
+        height="250"
+      >
     </el-card>
   </div>
 </template>
@@ -28,8 +34,7 @@ export default {
   mounted() {},
   methods: {
     async tab(url) {
-      console.log(url);
-      // window.open(url);
+      window.open(url);
     },
     async test() {
       console.log(this.$store.getters.getItemData);

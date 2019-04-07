@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
+import _ from 'lodash'
 
 import {getItems} from '../backend/api.js'
 
@@ -12,17 +13,24 @@ export default new Vuex.Store({
     items: []
   },
   mutations: {
-    async storeItems (state, itemSummaries) {
-      Vue.set(state, 'items', itemSummaries)
+    async storeItems (state, {itemSummaries, query}) {
+      let items = _.filter(itemSummaries, item => item.image)
+      items = _.filter(items, item => {
+        return (
+          _.includes(item.title.toLowerCase(), query.toLowerCase()) &&
+          _.includes(item.title.toLowerCase(), 'sustainable')
+        )
+      })
+      Vue.set(state, 'items', items.slice(0, 10))
     }
   },
   actions: {
     async retrieveItems ({commit}, {query}) {
       let {itemSummaries} = await getItems(query)
-      commit('storeItems', itemSummaries)
+      commit('storeItems', {itemSummaries, query})
     }
   },
   getters: {
-    getItemData: state => state
+    getItemData: state => state.items
   }
 })
