@@ -1,18 +1,29 @@
-<template lang="pug">
-    div
-      el-button(type="primary" @click="tab") New tab 
+<template>
+  <div>
+    <el-table>
+      <el-table-column prop="itemWebUrl" label="Web Url"></el-table-column>
+    </el-table>
+    <el-button @click="tab">Losted</el-button>
+    <el-button @click="test">Losted2</el-button>
+  </div>
 </template>
 <script>
+import {getItems} from '../backend/api.js';
 export default {
   data: () => ({}),
-  computed: {},
+  computed: {
+    itemData() {
+      return this.$store.getters.getItemData;
+    },
+  },
   created() {},
   mounted() {},
   methods: {
-    tab() {
-      chrome.tabs.create({ url: "pages/app.html" });
-    }
-  }
+    async tab() {},
+    async test() {
+      console.log(this.$store.getters.getItemData);
+    },
+  },
 };
 </script>
 <style lang="scss">
