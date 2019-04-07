@@ -1,6 +1,6 @@
 import Axios from 'axios'
 const userToken =
-  'v^1.1#i^1#I^3#r^0#p^1#f^0#t^H4sIAAAAAAAAAOVXa2wUVRTutttaUgqKqDwMWac2EnVm7+zs7GNsNy4tDRuBrt2CWjRlduZOd+jszDr3Lu0GlboxhdjwCCSKf8xitAYKGIz4w9cfY4hKlBgURRNjRKU+EBQFDah3ZpeyrQQoLELi/pmdc88993zf+c69c0Ff1YTb++f1H691XFOe6wN95Q4HWwMmVFXeMamifEZlGShycOT6bu1zZisONSAxqaWENohSho6gqzep6UiwjY1U2tQFQ0QqEnQxCZGAJSEWXjBf8DBASJkGNiRDo1yR5kaKhyz0+gNKkJNlvxz3Eqt+Oma70Uh5JD/nA6LX7wuyol/ykHGE0jCiIyzqmIwDNkgDLw387SwrsEDw8AznD3RQrsXQRKqhExcGUCE7XcGeaxbleu5URYSgiUkQKhQJt8Raw5HmuQvbG9xFsUIFHmJYxGk0+q3JkKFrsail4bmXQba3EEtLEkSIcofyK4wOKoRPJ3MR6dtUS94AL7Gy3x9XuCAMiCWhssUwkyI+dx6WRZVpxXYVoI5VnDkfo4SN+DIo4cLbQhIi0uyyHvemRU1VVGg2UnPnhB8IR6NUKCFK3RhKCXrkT7StmVZYnwx5X9xHB3hR5IKSUlgoH61A85iVmgxdVi3SkGuhgedAkjUcyw0o4oY4teqtZljBVkbFftwIh3yHVdR8FdM4oVt1hUlChMt+PX8FRmZjbKrxNIYjEcYO2BQ1UmIqpcrU2EFbiwX59KJGKoFxSnC7e3p6mB6OMcwutwcA1n3/gvkxKQGTRCG9SavX8/7q+SfQqg1FgmQmUgWcSZFceolWSQJ6FxXiAjwb9BR4H51WaKz1X4YizO7RHVGqDvFyPAxwHqKaIBsA3pJ0SKggUreVB4yLGTopmt0QpzRRgrREdJZOQlOVBY5XPFxAgbTsCyq0N6godJyXfTSrQAggjMelYOD/1CgXKvWYZKRg1NBUKVMSwZdO7KYcFU2ciUFNI4YLVf1ZQSIL5GWHZ/X6uCBaMRAJIqZUxtI2IxlJtyGSTc0yddpZXxLucCoVSSbTWIxrMFKaDe0KbWZnhaeS4/6qwkTqly+kKufPacauJoOWS4wJkZE2yScK02odW+1GN9TJJoBNQ9OguZi95EJfZfUd5155cbhLd1CPEzfpdc9l1bakqURCnVcG3RWuqiriqws1y/NeH8d7Pfwl4Wqya9qe+Q/OonHBm2cgDOXL8F3pHn3LDZXZPzbr2AWyjp3kogzcoJ6tA7dUVSxyVkycgVQMGVVUGKR26eTyZkKmG2ZSomqWVznUDR+t+rjoXp17CEwbuVlPqGBriq7Z4OYzI5Xs5Jtq2SDwAj/LssDDd4C6M6NO9kbn1F8Ofzk889mBY1uuW94PV/d/njvQdATUjjg5HJVlzqyjrG1Yvr6zt7uzfpvzae3R5lxur+/Qc0MPvzP9hSVvb7yv2l1zw44TD6qh4xy9qWVt7f7fP5k2+Pfs7cGnvnm/5ujJwwNggH9id8cfu35zLvp2s3SyftOmZ6K7Xl+xf8rAzuyd0754reX5U3u1H/c4p695peXPqVWuSEP7X0zb3Upic/XSDzd0/XCqI0EdfGPF2pdWPbJmcPubG+ur3xracnTw3Xkf7P45lKv6LOqvL3/8rj17u44sG9aDX326ftvLM6dM3Lk1FjhWN5htfbF+8sEDW7+etLES3PPqkh3X6k3rVi86DpfuW9swa0vdyuX7fprc8v1mfaj619uyK4fWDc+cPesx5GrOvNekfvek50RfV3e+fP8AfHz43vEQAAA='
+  'v^1.1#i^1#I^3#p^1#f^0#r^0#t^H4sIAAAAAAAAAOVXfWwURRTvXb9SS0FFgSDqdRENmt2b3dv72vTOHG2BE2hL76zQSHBvd7a37d7uujNHe4ZoUyJGC5gQDcJfDTUKJkL4wxiIJsaooIZgJBjFRBMxkfhRidWiBoKze0e5VgIUDiHxcsndvnnz5v1+v/dmdkB/Vc2DG5duPF3nqnYP9YN+t8vF1oKaqsqHppe751aWgSIH11D/ff0VA+UnG5CY0UyhHSLT0BH09GU0HQmOMUJlLV0wRKQiQRczEAlYEhKxFcsFjgGCaRnYkAyN8sSbIpSsBPx8EAb4gOwPgpBErPr5mEkjQrFBCYowALkQz0MgBcg4QlkY1xEWdRyhOMCGacDTIJhkeYEnX44Jcf5OytMBLaQaOnFhABV10hWcuVZRrpdOVUQIWpgEoaLx2OJEayze1NySbPAWxYoWeEhgEWfRxKdGQ4aeDlHLwksvgxxvIZGVJIgQ5Y3mV5gYVIidT+Yq0neoVkAqzIWUlKSAoN+XkkpC5WLDyoj40nnYFlWmFcdVgDpWce5yjBI2Ut1QwoWnFhIi3uSxf1ZmRU1VVGhFqOZFsdWxtjYqmhalHgylND3+p629iVbYgAz9gVSADvlF0ReWlMJC+WgFmiet1GjosmqThjwtBl4ESdZwMje+Im6IU6veasUUbGdU7BcY5xB02qLmVczitG7rCjOECI/zeHkFxmdjbKmpLIbjESYPOBRFKNE0VZmaPOjUYqF8+lCESmNsCl5vb28v0+tjDKvLywHAeletWJ6Q0jAjUsTX7vW8v3r5CbTqQJEgmYlUAedMkksfqVWSgN5FRX0hPxvmCrxPTCs62fovQxFm78SOKFWHBMNkGwKKn+MVOcSHgqXokGihSL12HjAl5uiMaPVAbGqiBGmJ1Fk2Ay1VFnx+hfOFFEjLgbBC82FFoVN+OUCzCoQAwlRKCof+T41ypaWekAwTthmaKuVKUvClK3ZLbhMtnEtATSOGK636i4JENsjrDs/u9SlBtGMgEkQ0VcaubUYyMl5DJJuabVrrZH1NuGOmGc9kslhMaTBemg3tBm1mF4WnkuP+psJE9MsLqcr5c5px1GTQOomxIDKyFnlFYVrtYytp9ECdbALYMjQNWh3sNQt9k+k7xb3y6nCX7qCeIm7S69x1rW1JU0kJrb0x6G6wqqqIby7UrN/PB/gQF7o2TRsdTZO5/+AsmhK8pQbCUL4O75XeibfcaJnzYQdcb4EB1z5yUQZesICdD+qryh+tKJ82F6kYMqqoMEjt0snlzYJMD8yZomq5q1zq1s+fO1Z0rx5aA+aM36xrytnaoms2mHdhpJKdMbuODQMeBFmefLhOMP/CaAU7q+KOOatqj31ouvd/VbuLavm07njlQv+boG7cyeWqLKsYcJXp2+l13Vu55Pp7lz8jnXAt3Hb2/elzdu05oaXdg0e7X/nRd/hrT1x6YTC9e+TuHcuS3V2jR6mtjyjb9+5TF362f93jZ+7xhVqHa19qPTX7tbnKhsGH53882rB7dOfSsQ9GVsaf+vKuyp+E4yeXBJ7//ofN1Wdb3uAOKuoT99/u3fTXL5lpdw6XyZuH/t5LZ06PmPSWc2d2s2+/x+z8nZ6xXqBqPjr057aZv63c/+4y+deR40zLEXbmwB97njaXdAZvO+QqP9cRebX+m59vne45OGQOjTW++HLzyW93Vm/6ItI8b+zwO/WD044scD+w57H219dsWf1d1bGxgQ23fNK3o719GDWfevbAgcSs0YNPNuTl+wcDICCJ8RAAAA=='
 
 // This obtains the user consent
 
@@ -9,8 +9,8 @@ export const axiosConfig = () => {
     baseURL: 'https://api.ebay.com/buy/browse/v1',
     headers: {
       Authorization: `Bearer ${userToken}`,
-      'Access-Control-Allow-Origin': '*'
-    }
+      'Access-Control-Allow-Origin': '*',
+    },
   })
 }
 
@@ -23,8 +23,8 @@ export const getItems = async query => {
   return api
     .get('item_summary/search', {
       params: {
-        q: `Sustainable ${query}`
-      }
+        q: `Sustainable ${query}`,
+      },
     })
     .then(r => r.data)
 }

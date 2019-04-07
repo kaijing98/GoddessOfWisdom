@@ -14,15 +14,13 @@ export default {
   },
   methods: {
     signIn() {
-      chrome.runtime.sendMessage({
-        type: 'text',
-      });
+      this.$store.dispatch('login');
       chrome.tabs.query({}, function(tabs) {
         tabs.forEach(tab => {
           console.log(tab.id);
-          chrome.tabs.sendMessage(tab.id, {redirect: true}, function(response) {
-            // alert(response);
-          });
+          chrome.tabs.sendMessage(tab.id, {redirect: true}, function(
+            response,
+          ) {});
         });
       });
     },

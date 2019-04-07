@@ -11,10 +11,10 @@ export default new Vuex.Store({
   plugins: [createPersistedState({storage: window.localStorage})],
   state: {
     items: [],
-    isLoggedIn: false
+    isLoggedIn: false,
   },
   mutations: {
-    async storeItems (state, {itemSummaries, query}) {
+    async storeItems(state, {itemSummaries, query}) {
       let items = _.filter(itemSummaries, item => item.image)
       items = _.filter(items, item => {
         return (
@@ -24,21 +24,22 @@ export default new Vuex.Store({
       })
       Vue.set(state, 'items', items.slice(0, 10))
     },
-    setLogIn (state, status) {
+    setLogIn(state, status) {
       state.isLoggedIn = status
-    }
+    },
   },
   actions: {
-    async retrieveItems ({commit}, {query}) {
+    async retrieveItems({commit}, {query}) {
       let {itemSummaries} = await getItems(query)
       commit('storeItems', {itemSummaries, query})
     },
 
-    async login ({commit}) {
+    async login({commit}) {
       commit('setLogIn', true)
-    }
+    },
   },
   getters: {
-    getItemData: state => state.items
-  }
+    getItemData: state => state.items,
+    getLoggedIn: state => state.isLoggedIn,
+  },
 })

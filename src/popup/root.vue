@@ -1,7 +1,7 @@
 <template>
   <div>
-    <log-in></log-in>
-    <!-- <logged-in></logged-in> -->
+    <logged-in></logged-in>
+    <!-- <log-in></log-in> -->
   </div>
 </template>
 <script>
@@ -15,6 +15,9 @@ export default {
   computed: {
     itemData() {
       return this.$store.getters.getItemData;
+    },
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
     },
   },
   created() {
