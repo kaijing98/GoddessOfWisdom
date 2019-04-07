@@ -17,15 +17,15 @@ module.exports = {
     'storage',
     'notifications',
     'identity',
-    'identity.email'
+    'identity.email',
   ],
   browser_action: {
     default_title: 'title',
-    default_popup: 'pages/popup.html'
+    default_popup: 'pages/popup.html',
   },
   background: {
     persistent: false,
-    page: 'pages/background.html'
+    page: 'pages/background.html',
   },
   devtools_page: 'pages/devtools.html',
   options_page: 'pages/options.html',
@@ -34,12 +34,12 @@ module.exports = {
       js: ['js/inject.js'],
       run_at: 'document_end',
       matches: ['<all_urls>'],
-      all_frames: true
-    }
+      all_frames: true,
+    },
   ],
   content_security_policy: "script-src 'self' 'unsafe-eval'; object-src 'self'",
   web_accessible_resources: ['panel.html', 'js/content.js'],
   externally_connectable: {
-    matches: ['https://www.amazon.com/*']
-  }
+    matches: ['https://www.amazon.com/*', 'https://winsonhys.github.io/'],
+  },
 }

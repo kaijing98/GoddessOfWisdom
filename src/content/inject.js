@@ -12,10 +12,7 @@ chrome.runtime.sendMessage('hfmhmekbejegcnndldeipoppfmbeaile', {
 })
 
 chrome.runtime.onMessage.addListener(message => {
-  blockstack.redirectToSignIn(
-    `${window.location.origin}/`,
-    `"https://api.jsonbin.io/b/5ca9fc66061b5b137a5f9def`,
-  )
+  blockstack.redirectToSignIn()
   console.log('redirecting')
   // if (redirect) {
   // }
